@@ -6,10 +6,11 @@ function SignUp(){
    const [username,setUsername]=useState('');
    const[email,setEmail]=useState('');
    const[password,setPassword]=useState('');
+   const BACKEND_URL='https://your-thoughts-backend.onrender.com'
   const handleSubmit=async(e)=>{
     e.preventDefault();
      try {
-       const response = await axios.post('http://localhost:3000/api/v1/users/register',
+       const response = await axios.post(`${BACKEND_URL}/api/v1/users/register`,
         {
         username,
         email,

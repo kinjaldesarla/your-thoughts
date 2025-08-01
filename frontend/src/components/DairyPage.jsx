@@ -8,6 +8,7 @@ const DairyPage = () => {
   const [diaryEntries,setDairyEntries]=useState([])
   const [editingEntryId, setEditingEntryId] = useState();
 const [editedContent, setEditedContent] = useState('');
+ const BACKEND_URL='https://your-thoughts-backend.onrender.com'
 const navigate =useNavigate();
 
   useEffect(()=>{
@@ -16,7 +17,7 @@ const navigate =useNavigate();
 
  const logout=async()=>{
     try {
-      const response=await axios.post("http://localhost:3000/api/v1/users/logout",{},{
+      const response=await axios.post(`${BACKEND_URL}/api/v1/users/logout`,{},{
         withCredentials:true
       })
     localStorage.removeItem("token");
@@ -31,7 +32,7 @@ const navigate =useNavigate();
 
   const addEntry=async()=>{
     try {
-      const response= await axios.post(`http://localhost:3000/api/v1/dairy/dairy-page/create-dairy-page/${dairyId}`,
+      const response= await axios.post(`${BACKEND_URL}/api/v1/dairy/dairy-page/create-dairy-page/${dairyId}`,
         {
           content:dairyContent
         },
@@ -51,7 +52,7 @@ const navigate =useNavigate();
 
   const fetchDairyEnteries=async()=>{
     try {
-      const response=await axios.get(`http://localhost:3000/api/v1/dairy/dairy-page/${dairyId}`,{withCredentials:true})
+      const response=await axios.get(`${BACKEND_URL}/api/v1/dairy/dairy-page/${dairyId}`,{withCredentials:true})
       setDairyEntries(response.data.data)
       console.log("enteries fetched",response.data.data);
     } catch (err) {
@@ -62,7 +63,7 @@ const navigate =useNavigate();
 
   const deleteDairyEnteries=async(entryId)=>{
     try {
-      const response= await axios.delete(`http://localhost:3000/api/v1/dairy/dairy-page/delete-dairy-page/${entryId}`,
+      const response= await axios.delete(`${BACKEND_URL}/api/v1/dairy/dairy-page/delete-dairy-page/${entryId}`,
         {withCredentials:true}
       )
       fetchDairyEnteries();
@@ -75,7 +76,7 @@ const navigate =useNavigate();
 
   const handleUpdateEntry = async (entryId) => {
   try {
-    await axios.patch(`http://localhost:3000/api/v1/dairy/dairy-page/update-dairy-page/${entryId}`, 
+    await axios.patch(`${BACKEND_URL}/api/v1/dairy/dairy-page/update-dairy-page/${entryId}`, 
       { content: editedContent },
       { withCredentials: true }
     );

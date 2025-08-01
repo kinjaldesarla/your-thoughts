@@ -7,9 +7,10 @@ function Dairy (){
    const[dairies,setDairies]=useState([])
    const[dairyName,setDairyName]=useState('')
   const navigate=useNavigate();
+   const BACKEND_URL='https://your-thoughts-backend.onrender.com'
   const fetchDairies=async()=>{
     try {
-      const response= await axios.get("http://localhost:3000/api/v1/dairy/", {
+      const response= await axios.get(`${BACKEND_URL}/api/v1/dairy/`, {
   withCredentials: true
 });
       console.log("dairies",response.data.data);
@@ -25,7 +26,7 @@ function Dairy (){
 
  const logout=async()=>{
     try {
-      const response=await axios.post("http://localhost:3000/api/v1/users/logout",{},{
+      const response=await axios.post(`${BACKEND_URL}/api/v1/users/logout`,{},{
         withCredentials:true
       })
     localStorage.removeItem("token");
@@ -40,7 +41,7 @@ function Dairy (){
 
   const createDairy=async()=>{
     try {
-      const response=await axios.post("http://localhost:3000/api/v1/dairy/create-dairy",
+      const response=await axios.post(`${BACKEND_URL}/api/v1/dairy/create-dairy`,
      { dairyName},
         {
           withCredentials:true
@@ -64,7 +65,7 @@ function Dairy (){
   const deleteDairy=async(dairyId)=>{
     try {
       console.log(dairyId);
-      const response=await axios.delete(`http://localhost:3000/api/v1/dairy/delete-dairy/${dairyId}`,{
+      const response=await axios.delete(`${BACKEND_URL}/api/v1/dairy/delete-dairy/${dairyId}`,{
         withCredentials:true
       })
       fetchDairies()
