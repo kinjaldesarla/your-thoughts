@@ -1,6 +1,6 @@
 import { Dairy } from "../models/dairy.models.js";
-import { ApiError } from "../utils/apierror.js";
-import { ApiResponse } from "../utils/apiResponse.js";
+import { ApiError } from "../utils/ApiError.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
 import asynHandler from "../utils/aysnhandler.js";
 
 const getAllDairy=asynHandler(async(req,res)=>{
