@@ -32,64 +32,63 @@ function SignUp(){
    }
   }
     return (
-   <div className="bg-[#5b4a57] w-full h-screen">
-  <h1
-    className="font-bold text-3xl text-center p-8 pb-6 text-white"
-    style={{ fontFamily: "'Gloria Hallelujah', cursive" }}
-  >
+ <div className="bg-[#5b4a57] w-full min-h-screen flex flex-col justify-center items-center px-4">
+  <h1 className="font-bold text-3xl text-white mb-6" style={{ fontFamily: "'Gloria Hallelujah', cursive" }}>
     YourThoughts
   </h1>
 
-  <div className=" w-2/5 h-4/5 bg-white rounded-lg p-6 m-auto shadow-md">
+  <div className="w-full max-w-md bg-white rounded-lg p-6 shadow-md">
     <form onSubmit={handleSubmit}>
       <h2 className="text-center text-2xl font-semibold mb-6 text-[#5b4a57]">Sign Up</h2>
 
-      <div className="flex items-center gap-2 mb-4 ">
-        <label className="w-20 text-left text-[#5b4a57] font-medium pl-0">UserName:</label>
+      <div className="mb-4">
+        <label className="block text-[#5b4a57] font-medium mb-1">UserName:</label>
         <input
           type="text"
           value={username}
-          onChange={(e)=>setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
           required
-          className="flex-1 border-2 border-[#5b4a57] p-2 rounded bg-transparent text-black"
+          className="w-full border-2 border-[#5b4a57] p-2 rounded bg-transparent text-black"
         />
       </div>
 
-      <div className="flex items-center gap-2 mb-4">
-        <label className="w-20 text-left text-[#5b4a57] font-medium">Email:</label>
+      <div className="mb-4">
+        <label className="block text-[#5b4a57] font-medium mb-1">Email:</label>
         <input
           type="email"
           value={email}
-          onChange={(e)=>setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           required
-          className="flex-1 border-2 border-[#5b4a57] p-2 rounded bg-transparent text-black"
+          className="w-full border-2 border-[#5b4a57] p-2 rounded bg-transparent text-black"
         />
       </div>
 
-      <div className="flex items-center gap-2 mb-6">
-        <label className="w-20 text-left text-[#5b4a57] font-medium">Password:</label>
+      <div className="mb-6">
+        <label className="block text-[#5b4a57] font-medium mb-1">Password:</label>
         <input
           type="password"
           value={password}
-          onChange={(e)=>setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           required
-          className="flex-1 border-2 border-[#5b4a57] p-2 rounded bg-transparent text-black"
+          className="w-full border-2 border-[#5b4a57] p-2 rounded bg-transparent text-black"
         />
       </div>
 
       <button
         type="submit"
-       className="mx-auto my-4 block bg-[#5b4a57] text-white py-3 px-6 rounded hover:bg-[#4a3948] transition duration-200"
+        className="w-full bg-[#5b4a57] text-white py-3 rounded hover:bg-[#4a3948] transition duration-200"
       >
         Create Account
       </button>
-      <div className="flex gap-6 my-10 justify-around items-center">
-      <div className="text-[#5b4a57] font-medium text-center">Already having account?</div>
-      <Link to="/login">
-        <button  className=" bg-[#5b4a57] text-white py-3 px-10  rounded hover:bg-[#4a3948] transition duration-200">
-        login</button>
-      </Link>
-        </div>
+
+      <div className="flex flex-col md:flex-row gap-4 mt-6 justify-between items-center">
+        <span className="text-[#5b4a57] font-medium text-center">Already have an account?</span>
+        <Link to="/login">
+          <button className="bg-[#5b4a57] text-white py-2 px-6 rounded hover:bg-[#4a3948] transition duration-200">
+            Login
+          </button>
+        </Link>
+      </div>
     </form>
   </div>
 </div>
