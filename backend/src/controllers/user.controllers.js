@@ -59,6 +59,7 @@ if (!passwordRegex.test(password)) {
    const AuthenicatedUser =await User.findById(user._id).select("-password -refreshToken")
 const options={
      httpOnly: true,
+    sameSite: "None",
      secure: true
 }
  return res
@@ -98,6 +99,7 @@ const loginUser=asynHandler(async(req,res)=>{
    const loggedInUser =await User.findById(user._id).select("-password -refreshToken")
 const options={
      httpOnly: true,
+    sameSite: "None",
      secure: true
 }
  return res
@@ -129,6 +131,7 @@ await User.findByIdAndUpdate(
  )
  const options={
     httponly:true,
+     sameSite: "None",
     secure:true
  }
  return res
