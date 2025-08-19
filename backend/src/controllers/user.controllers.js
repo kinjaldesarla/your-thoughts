@@ -49,6 +49,7 @@ if (!passwordRegex.test(password)) {
     email,
     password
    })
+  await user.save();
    const createdUser=await User.findById(user._id).select(
     "-password -refreshToken"
   )
